@@ -70,6 +70,7 @@ char	*merge_args(char **argv) {
 	}
 	res = current;
 	res[ft_strlen(res) - 1] = '\0';
+	return (res);
 }
 
 int		main(int argc, char **argv)
