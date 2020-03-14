@@ -1,0 +1,6 @@
+*.o
+*.a
+*.dSYM
+CMakeLists.txt
+/cmake-build-debug
+
