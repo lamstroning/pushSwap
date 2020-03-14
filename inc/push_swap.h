@@ -28,6 +28,9 @@ typedef struct	s_stk
 
 void			error(void);
 void			make_stk(t_stk	*stk);
+char			*merge_args(char **argv);
+int				count_char(char **argv);
+
 
 int				check_arg(char *line, int *a, int next, t_stk *stk);
 int				check_forbidn(char *str);

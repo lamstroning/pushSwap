@@ -26,13 +26,61 @@ void	make_stk(t_stk *stk)
 	stk->max = 0;
 }
 
+int		count_char(char **argv) {
+	int			size;
+	char		**buf;
+	int			i;
+
+	i = -1;
+	size = 0;
+	while (*argv++ != NULL)
+	{
+		buf = ft_strsplit(*argv, ' ');
+		while (buf && buf[++i])
+		{
+			size += ft_strlen(buf[i]) + 1;
+			ft_strdel(&buf[i]);
+		}
+		i = -1;
+		free(buf);
+	}
+	return (size);
+}
+
+char	*merge_args(char **argv) {
+	char	*res;
+	char	*current;
+	char	**buf;
+	int		i;
+
+	i = -1;
+	res = (char *)ft_memalloc(sizeof(char) * count_char(argv));
+	current = res;
+	while (*argv++ != NULL)
+	{
+		buf = ft_strsplit(*argv, ' ');
+		while (buf && buf[++i]) {
+			res = ft_strcpy(res, buf[i]);
+			res[ft_strlen(res)] = ' ';
+			res += ft_strlen(res);
+			ft_strdel(&buf[i]);
+		}
+		free(buf);
+		i = -1;
+	}
+	res = current;
+	res[ft_strlen(res) - 1] = '\0';
+}
+
 int		main(int argc, char **argv)
 {
 	t_stk	stk;
+	char	*params;
 
-	make_stk(&stk);
 	if (argc <= 1)
 		error();
+	params = merge_args(argv);
+	make_stk(&stk);
 	stk.cnt_a = read_arg(argc, argv, &stk);
 	s_rotate_rev(&stk, 'a');
 	s_push(&stk, 'b');

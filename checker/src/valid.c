@@ -12,6 +12,32 @@
 
 #include "push_swap.h"
 
+// int		read_arg(int argc, char **argv, t_stk *stk)
+// {
+// 	int		i;
+// 	int		j;
+// 	int		a[count_elem(argc, argv)];
+
+// 	i = 0;
+// 	j = -1;
+// 	while (++j < argc - 1)
+// 	{
+// 		if (ft_strchr(argv[j + 1], ' ') != NULL)
+// 			i += check_arg(argv[j + 1], a, i, stk) - 1;
+// 		else if (check_forbidn(argv[j + 1]))
+// 			error();
+// 		else
+// 			a[i] = add_new(a, ft_atoi(argv[j + 1]), i, stk);
+// 		i++;
+// 	}
+// 	stk->a = (int *)ft_memalloc(sizeof(int) * i);
+// 	stk->b = (int *)ft_memalloc(sizeof(int) * i);
+// 	j = -1;
+// 	while (++j < i)
+// 		stk->a[j] = a[j];
+// 	return (i);
+// }
+
 int		read_arg(int argc, char **argv, t_stk *stk)
 {
 	int		i;
